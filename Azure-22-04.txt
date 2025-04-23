@@ -1,0 +1,99 @@
+22/apr
+
+
+NSG - Network security grp that acts as a virtual firewall, filtering the inbound and outbound network traffic
+
+NFR vs FR
+
+fr (functional requirements) - Features, behaviors, or services the system must provide.
+
+nfr (non-functional requirements) - Qualities or constraints of the system.
+
+tactics of nfr 
+	Performance - The system should respond quickly and handle expected loads.
+	Scalability - The system can grow (up or out) to handle increased traffic/data.
+	Availability - The system should be up and running with minimal downtime.
+	Reliability - The system performs consistently and correctly over time.
+	Usability - The system is easy to use, intuitive, and user-friendly.
+	Maintainability - The system can be easily updated, fixed, or improved.
+	Portability - The system can run on different platforms or environments.
+	Interoperability - The system can work well with other systems and services.
+	Testability - The system can be easily tested for correctness and quality.
+	Compliance - The system follows laws, regulations, and standards.
+
+image cache - Docker saves time during builds by reusing previously built layers instead of rebuilding everything from scratch - only in compile time not at run time.
+
+abt alphine img - 
+
+types of scale in Kubernetes
+	* Horizontal Pod Autoscaling (HPA)	
+	define - Automatically adds/removes pods based on CPU/memory usage or custom metrics.	
+	eg - Web app scales from 2 pods to 5 during high traffic.
+	* Vertical Pod Autoscaling (VPA)	
+	define - Automatically adjusts CPU/memory resources of pods (not number of pods).	
+	eg - Increases memory limit of a pod from 256Mi to 512Mi.
+	* Cluster Autoscaler (CA)	
+	define - Automatically adds/removes nodes in the cluster based on pod scheduling needs.	
+	eg - Adds a new VM/node when pods can't fit due to resource limits.
+
+
+
+bastion host - acts like a door / people which correct pem file can access to ip...which means they should have listed ips to enter the bastion host. (You have a private VM in an Azure VNet or AWS VPC with no public IP.Without Bastion:
+	* You can't SSH into it from your laptop.
+	* Exposing a public IP is risky.
+
+bastion host -- secure gateway server used to access private resources (like VMs) in a protected network.
+You connect to the Bastion, and then from there, you can connect to your private servers — instead of exposing them directly to the internet.
+
+
+vnet--service that provides the fundamental building block for your private network in Azure. -- can be for particular area not all over the nation. 
+
+vpc
+
+________
+
+tech-1 ---> vnet (main)
+
+tech-2
+
+info1 ---> subnet 
+
+_________
+
+regions - geographical area where physical datacenter are available.
+availability zones -  its own mini data center with independent: Power , Cooling , Networking.
+
+deployment models.
+
+*Public - owned and operated by third-party cloud providers
+	- Low cost, No hardware maintenance, fast to deploy
+*Private - used exclusively by one organization. It can be hosted on-premises or by a third-party, but is fully dedicated to a single tenant.
+	- Greater security and control
+*Hybrid - combines public and private clouds, allowing data and apps to be shared between them.
+	- Balances cost and control
+
+______________________
+
+vpc/vnet peering- allows two Virtual Private Clouds (VPCs) to communicate with each other privately using private IP addresses, without going over the public internet.it should have diff range of ip address.
+
+Good Peering Example
+	VNet A: 10.1.0.0/16
+	VNet B: 10.2.0.0/16
+No overlap — peering works fine
+
+if ip looks- 10.1.1.0/24 --> like this it works...it may overlap.
+
+why we r using peering..advantages an disadvantages.
+	* costly without peering
+	* security
+	* latency	
+
+__________________________
+
+
+vm scale set - different service - auto scaling will happens ---where resource increase ..it should define with loadbalancer.
+
+availability set - fault domain --- azure says that it will distribute vm across multiple fault domain.
+
+
+
