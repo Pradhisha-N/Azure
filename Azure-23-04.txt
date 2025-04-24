@@ -1,0 +1,54 @@
+23/apr
+
+vnet -- A VNet defines the IP address space, subnets, and boundaries within which your resources can communicate securely and privately.
+	* VNets don't talk to each other by default
+	* Communication between VNets requires VNet Peering or a VPN Gateway.
+
+vnet scope -- refers to what is included within a particular VNet, and how it's isolated from or connected to other VNets.
+
+fault domain - A fault domain is a group of hardware (like servers, power, network) that can fail together.
+So if one fault domain goes down, only the VMs inside it are affected.
+
+example: our app running in 3VM in different racks, in that get fails,, other rack will keep working.
+
+availability set -- rack/host failure in the same datacenter
+
+availability zone -- entire datacenter failure where in different datacenters (zones)
+
+subnetting -- Subnetting is the process of dividing a large IP network into smaller parts (subnets).
+
+entries     
+network     -	1	2	4	8	16	32	64	128	256
+		
+host        - 	256	128	64	32	16	8	4	2	1
+
+subnet mask - 	/24	/25	/26	/27	/28	/29	/30	/31	/32
+
+
+
+	  IP Range		 network ID	Broadcast ID	IP represent(CIDR)
+
+TEAM 1 -10.0.0.1 - 10.0.0.62	 10.0.0.0	10.0.0.63	10.0.0.0/26 --64 MACHINES
+
+TEAM 2 -10.0.0.65 - 10.0.0.126	 10.0.0.64	10.0.0.127	10.0.0.64/26
+
+TEAM 3 -10.0.0.129 - 10.0.0.190	 10.0.0.128	10.0.0.191	10.0.0.128/26
+
+_____________________________________________
+
+Create VNet 
+
+* basics -- subscription, resource group,name, region
+* security --vm encryption, azure bastion, azure firewall, azure DDoS network protection
+* IP Addresses -- add a subnet
+* tags + create
+
+NSG
+
+* basics -- subscription, resource group,name, region
+* tags + create
+
+
+
+
+
