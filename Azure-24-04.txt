@@ -1,0 +1,93 @@
+24/04
+
+benefits of public cloud
+challenges of public cloud
+common usecase for public cloud 
+
+
+
+azure 
+------
+region pairs
+edge locations
+
+cdn -content delivery network 
+
+key aspects of cloud regions
+
+
+Azure resource group:'
+resource manager
+
+azure --- subscription,tenant,entra id,accounts
+#azure subscription
+azure billing
+
+
+azure clients
+
+
+
+_____________________
+az
+az login
+
+u will get link --use that to login to azure using the code
+then enter 1
+__________
+
+creating vnet
+
+az network vnet create --resource-group <resource_group_name> --name <vnet_name> --address-prefixes <ad>
+_______
+create subnet
+
+az network vnet subnet create \
+
+ --resource-group <resource_group_name> \
+
+ --vnet-name <vnet_name> \
+
+ --name <subnet_name> \
+
+ --address-prefix <subnet_prefix>
+
+____________________
+create vm 
+
+az vm create \
+ --resource-group <resource_group_name> \
+ --name <vm_name> \
+ --location <location> \
+ --image <vm_image> \
+ --vnet-name <vnet_name> \
+ --subnet <subnet_name> \
+ --admin-username <admin_username> \
+ --admin-password <admin_password>
+az vm create \
+ --resource-group pradhisha-rg \
+ --name pradhi-vm \
+ --location centralindia \
+ --image "Ubuntu2204" \
+ --size Standard_B1s \
+ --vnet-name pradhi-vnet-1 \
+ --subnet pradhi-sub1 \
+ --admin-username pradhi \
+ --admin-password 'pradhisha@123'
+
+____________________________
+
+login to any of 1 user
+
+ssh usernamr@publicip
+
+
+_________
+vnet peering command:
+
+az network vnet peering create \
+  --name VNet-1-to-VNet-2 \
+  --resource-group Pravalika-RG \
+  --vnet-name Pravalika-vnet2 \
+  --remote-vnet Pravalika-vnet1 \
+  --allow-vnet-access
