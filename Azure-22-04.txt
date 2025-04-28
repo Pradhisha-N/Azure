@@ -23,18 +23,16 @@ tactics of nfr
 
 image cache - Docker saves time during builds by reusing previously built layers instead of rebuilding everything from scratch - only in compile time not at run time.
 
-abt alphine img - 
+abt alphine img - light weight, make container tiny.
 
 types of scale in Kubernetes
 	* Horizontal Pod Autoscaling (HPA)	
-	define - Automatically adds/removes pods based on CPU/memory usage or custom metrics.	
-	eg - Web app scales from 2 pods to 5 during high traffic.
+	define - Automatically adds/removes pods based on CPU/memory usage or custom metrics.		eg - Web app scales from 2 pods to 5 during high traffic.
 	* Vertical Pod Autoscaling (VPA)	
-	define - Automatically adjusts CPU/memory resources of pods (not number of pods).	
-	eg - Increases memory limit of a pod from 256Mi to 512Mi.
+	define - Automatically adjusts CPU/memory resources of pods (not number of pods).		eg - Increases memory limit of a pod from 256Mi to 512Mi.
 	* Cluster Autoscaler (CA)	
 	define - Automatically adds/removes nodes in the cluster based on pod scheduling needs.	
-	eg - Adds a new VM/node when pods can't fit due to resource limits.
+		eg - Adds a new VM/node when pods can't fit due to resource limits.
 
 
 
@@ -67,8 +65,10 @@ deployment models.
 
 *Public - owned and operated by third-party cloud providers
 	- Low cost, No hardware maintenance, fast to deploy
+
 *Private - used exclusively by one organization. It can be hosted on-premises or by a third-party, but is fully dedicated to a single tenant.
 	- Greater security and control
+
 *Hybrid - combines public and private clouds, allowing data and apps to be shared between them.
 	- Balances cost and control
 
@@ -83,11 +83,12 @@ No overlap — peering works fine
 
 if ip looks- 10.1.1.0/24 --> like this it works...it may overlap.
 
-why we r using peering..advantages an disadvantages.
+why we r using peering..advantages 
 	* costly without peering
 	* security
-	* latency	
-
+	* low-latency	
+disadvantages 
+overlapping IPs not allowed
 __________________________
 
 
