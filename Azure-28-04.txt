@@ -1,0 +1,134 @@
+28/04
+
+IaC - infrastructure as code
+
+	IaC means managing and provisioning your infrastructure (like servers, networks, databases, etc.) through code — instead of manually setting things up.
+
+advantages:
+
+consistency
+reusability
+version control
+scalability
+automation
+cost management
+speed and efficiency
+security
+
+3 categories :
+	1. provisioning tools - Provisioning tools help automate the creation and management of infrastructure resources
+* terraform
+* ARM Templates
+	2. configuration management tools - used to manage and automate the configuration of software and settings on servers after they have been provisioned. These tools help with system setup, software installation, and maintenance.
+* Ansible
+* chef
+* puppet
+	3. Orchestration tools - Orchestration tools automate the deployment and management of applications and services across multiple systems. These tools can handle tasks like scaling, updating, and distributing workloads.
+
+* Kubernetes
+* Docker compose
+
+	4. server templating tool
+		helps to create a pre-built environment tool to save time
+*vagrant
+*docker
+
+
+
+argo CD = Argo Continuous Delivery. |  It is a GitOps tool used for Kubernetes deployment.
+flux CD = 			    |  It is a GitOps tool used for Kubernetes deployment.
+
+
+
+how ansible is differ from chef & puppet server(pull model).
+
+ansible wont use agents instead it use SSH. but chef and puppet use agent and use client server architecture.
+
+server templating:
+
+server templating is the practice of creating predefined configurations that describe the desired state of a server, which can then be used to quickly create multiple instances of that server with consistent configurations.
+
+
+plan, apply, destroy - compare the 3 things(compare with .tf file,cloud,.tf state file)
+state file :all the details what u created in last time(compare with .tf file,cloud,.tf state file)
+    terraform wont touch things from outside
+        how we can find inside and outside?
+                by seeing state file
+
+imp files
+---------
+.tf
+.statefile
+actual cloud
+
+
+dns server---etc/resolve.conf file---location the server configured----within the address anyone try to talk with any domain name this will be dns server checked.
+
+____________________________________
+Create VM
+
+az vm create \
+ --resource-group pradhisha-rg \
+ --name pradhisha-vm \
+ --image Ubuntu2204 \
+ --size Standard_B1s \
+ --admin-username azureuser \
+ --generate-ssh-keys \
+ --vnet-name pradhisha-vnet \
+ --subnet backend-subnet \
+ --location eastus
+____________________________________
+provider "azurerm" {
+	features{
+	}
+}
+terraform{
+required_providers{{
+azurerm=={
+source="hashicorp/azurerm"
+version="2.40.0"
+}
+}
+}
+
+resource "azurerm_resource_group" "pradhisha-rg1" {
+name="pradhisha-rg1"
+location="eastus"
+}
+____________________________
+
+terraform init - initiate
+terraform plan - Show what changes Terraform will make
+terraform apply - apply/update the planned changes
+terraform destroy - delete all the resource terraform manages
+terraform fmt - format the terraform file
+terraform validate - validate the file
+
+---------------
+terraform file:
+---------------
+provider "azurerm" {
+    features {}
+    }
+
+    terraform {
+        required_providers {
+            azurerm = {
+                source = "hashicorp/azurerm"
+                version = "2.40.0"
+                }
+            }
+        }
+
+        resource "azurerm_virtual_network" "vnet"{
+            name = "pradhisha-vnet1"
+            location = "centralindia"
+            resource_group_name = "pradhisha-rg"
+            address_space = ["10.0.0.0/16"]
+        }
+
+
+
+
+
+
